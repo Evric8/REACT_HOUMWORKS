@@ -1,7 +1,11 @@
+import Card from "./components/Card";
+
 function App() {
   return (
     <div className="App">
-          Learn React
+      <Card title='hi' />
+      <Card text='how are you?' />
+      <Card title='hi' text='how are you?' />
     </div>
   );
 }
