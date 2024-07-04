@@ -1,7 +1,14 @@
+import Definitions from "./components/Definitions";
+
 function App() {
+  let definitions = [
+    { dt: 'one', dd: 'two', id: 1 },
+    { dt: 'another term', dd: 'another description', id: 2 },
+  ];
+
   return (
     <div className="App">
-          Learn React
+      <Definitions data={definitions} />
     </div>
   );
 }
