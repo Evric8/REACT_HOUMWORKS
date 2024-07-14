@@ -1,7 +1,9 @@
+import Progress from "./components/Progress";
+
 function App() {
   return (
     <div className="App">
-          Learn React
+      <Progress percentage={40} />
     </div>
   );
 }
