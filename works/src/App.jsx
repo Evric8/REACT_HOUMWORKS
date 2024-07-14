@@ -1,7 +1,10 @@
+import Alert from "./components/Alert";
+
 function App() {
   return (
     <div className="App">
-          Learn React
+      <br/>
+      <Alert type="success" text="what is love?" />
     </div>
   );
 }
