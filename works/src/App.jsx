@@ -1,7 +1,12 @@
+import ListGroup from "./components/ListGroup";
+
 function App() {
   return (
     <div className="App">
-          Learn React
+      <ListGroup>
+        <p>one</p>
+        <p>two</p>
+      </ListGroup>
     </div>
   );
 }
