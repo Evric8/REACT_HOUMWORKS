@@ -1,7 +1,8 @@
+import BtnGroup from "./components/BtnGroup";
 function App() {
   return (
     <div className="App">
-          Learn React
+      <BtnGroup />
     </div>
   );
 }
