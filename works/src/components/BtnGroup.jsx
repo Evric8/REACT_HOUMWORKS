@@ -5,44 +5,64 @@ class BtnGroup extends React.Component{
   constructor(props) {
     super(props);
     this.state ={
-      changeLeft: false,
-      changeRight: false,
+      checked: ''
     };
   }
 
-  onChangeLeft =(e)=>{
-    this.setState(({changeLeft})=>({changeLeft: !changeLeft}))
-    this.setState(({changeRight})=>({changeRight: false}))
+  handleClick=(e)=>{
+    this.setState(({ checked })=>({checked: e.target.value}))
   }
 
-  onChangeRight =(e)=>{
-    this.setState(({changeLeft})=>({changeLeft: false}))
-    this.setState(({changeRight})=>({changeRight: !changeRight}))
-  }
+
   render() {
-    const btnClassLeft = classNames([
-      'btn btn-secondary btn-lg left',
-     this.state.changeLeft && 'active'
-  ])
-    const btnClassRight = classNames([
-      'btn btn-secondary btn-lg right',
-     this.state.changeRight ? 'active' : null
+    const inputBtnClass1 = classNames([
+      'btn  btn-lg left btn-check',
+      this.state.checked === 'left' ? 'active' : null
     ])
-   return <Fragment>
-            <br/>
-               <div className="container">
-                  <div className="btn-group" role="group">
-                     <button type="button" className={btnClassLeft} onClick={this.onChangeLeft}>Left</button>
-                     <button type="button" className={btnClassRight} onClick={this.onChangeRight}>Right</button>
-                  </div>
-               </div>
-         </Fragment>
+
+    const inputBtnClass2 = classNames([
+      'btn  btn-lg left btn-check',
+      this.state.checked === 'middle' ? 'active' : null
+    ])
+
+    const inputBtnClass3 = classNames([
+      'btn  btn-lg left btn-check',
+      this.state.checked === 'right' ? 'active' : null
+    ])
+
+    const labelBtnClass = classNames([
+      'btn btn-secondary',
+    ])
+
+    return <Fragment>
+      <br/>
+      <div className="container">
+        <div className="btn-group" role="group">
+
+          <label className={labelBtnClass}>
+            {this.state.checked === 'left' ? "Увімкнено" : 'Left'}
+            <input type="radio" className={inputBtnClass1}  name="options" value='left' onClick={this.handleClick} autoComplete="off"/>
+          </label>
+
+          <label className={labelBtnClass}>
+            {this.state.checked === 'middle' ? "Увімкнено" : 'Middle'}
+            <input type="radio" className={inputBtnClass2}  name="options" value='middle' onClick={this.handleClick} autoComplete="off"/>
+          </label>
+
+
+          <label className={labelBtnClass}>
+            {this.state.checked === 'right' ? "Увімкнено" : 'Right'}
+            <input type="radio" className={inputBtnClass3}  name="options" value='right' onClick={this.handleClick} autoComplete="off"/>
+          </label>
+
+        </div>
+      </div>
+    </Fragment>
   }
 }
 
 BtnGroup.defaultProps = {
-  changeLeft: false,
-  changeRight: false,
+  checked: ''
 }
 
 export default BtnGroup;
