@@ -1,7 +1,13 @@
+import Collapse from  './components/Collapse';
+import React from "react";
+
 function App() {
+  const text = "collapse me";
   return (
     <div className="App">
-          Learn React
+      <>
+        <Collapse text={text} opened={false} />
+      </>
     </div>
   );
 }
