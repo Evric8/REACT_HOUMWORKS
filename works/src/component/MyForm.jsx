@@ -1,4 +1,6 @@
 import React, { Fragment } from "react";
+// import classNames from "classnames";
+// import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
 
 class MyForm extends React.Component {
   constructor(props) {
@@ -193,12 +195,9 @@ class MyForm extends React.Component {
     return (
       <Fragment>
         <br />
-
         <div className="container">
-          {" "}
           {this.state.data ? startForm : valueForm}
         </div>
-
         <br />
       </Fragment>
     );
