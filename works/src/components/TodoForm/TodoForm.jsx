@@ -1,0 +1,75 @@
+import React, { Component } from "react";
+import { Form, Button } from "react-bootstrap";
+import { propTypes } from "react-bootstrap/esm/Image";
+
+class TodoForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      formData: {
+        title: "",
+        description: "",
+      },
+      isLoading: false,
+    };
+  }
+
+  handleChange = ({ target }) => {
+    const formData = {
+      ...this.state.formData,
+      [target.name]: target.value,
+    };
+    this.setState({ formData });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    for (const key in this.state.formData) {
+      if (this.state.formData[key].trim() === "")
+        return alert(`${key} is empty`);
+    }
+
+    this.props.onSubmit_1({ ...this.state.formData });
+  };
+
+  render() {
+    const { title, description } = this.state.formData;
+
+    return (
+      <Form onSubmit={this.handleSubmit}>
+        <Form.Group className="mb-3" controlId="todoItemTitle">
+          <Form.Label>Title</Form.Label>
+          <Form.Control
+            name="title"
+            type="text"
+            placeholder="Enter todo item title"
+            onChange={this.handleChange}
+            value={title}
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="todoItemDescription">
+          <Form.Label>Description</Form.Label>
+          <Form.Control
+            name="description"
+            as="textarea"
+            type="text"
+            placeholder="Enter todo item description"
+            onChange={this.handleChange}
+            value={description}
+          />
+        </Form.Group>
+
+        <Button type="submit">Submit</Button>
+      </Form>
+    );
+  }
+}
+
+TodoForm.propTypes = {
+  onSubmit_1: propTypes.func,
+};
+
+export default TodoForm;

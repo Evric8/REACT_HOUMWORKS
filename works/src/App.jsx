@@ -1,7 +1,9 @@
+import React, { Fragment } from "react";
+import TodoList from "./components/TodoList";
 function App() {
   return (
     <div className="App">
-          Learn React
+      <TodoList />
     </div>
   );
 }
