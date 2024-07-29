@@ -1,7 +1,13 @@
+import React, { Fragment } from "react";
+import PostCatalog from "./PostCatalog";
 function App() {
   return (
     <div className="App">
-          Learn React
+      <div className="container">
+        <br />
+        <h1 className="text-center">Articles</h1>
+        <PostCatalog/>
+      </div>
     </div>
   );
 }
